@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Modular Web Flight Simulator</title>
-    <!-- Imports the structural layout stylesheet -->
+    <!-- Stylesheet Modules -->
     <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/instrument.css">
     <style>
-        /* Visual Theme Overlays (Can later be moved to a theme.css file) */
+        /* Base Theme Styles */
         body {
             background-color: #0b0b0e;
             color: #00ffcc;
@@ -20,29 +21,6 @@
         .windshield-container {
             border: 2px solid #333344;
             background: #000;
-        }
-        .hud-overlay {
-            font-size: 14px;
-            text-shadow: 1px 1px 2px #000;
-        }
-        .dashboard {
-            background: #111115;
-            border: 1px solid #22222a;
-        }
-        .instrument {
-            border-right: 1px solid #22222a;
-        }
-        .instrument:last-child {
-            border-right: none;
-        }
-        .instrument label {
-            font-size: 11px;
-            color: #777788;
-            letter-spacing: 1px;
-        }
-        .instrument span {
-            font-size: 20px;
-            font-weight: bold;
         }
         .controls-hint {
             font-size: 12px;
@@ -87,7 +65,7 @@
         </div>
     </div>
 
-    <!-- Imports the main JavaScript module -->
+    <!-- Main JavaScript Module -->
     <script type="module" src="./js/main.js"></script>
 
 </body>
