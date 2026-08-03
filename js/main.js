@@ -1,13 +1,12 @@
 import { plane, updatePhysics } from './physics.js';
 import { drawWindshieldView } from './renderer.js';
+import { keys, initInputs } from './inputs.js';
 
 const canvas = document.getElementById('skyCanvas');
 const ctx = canvas.getContext('2d');
 
-// Track keyboard inputs
-let keys = {};
-window.addEventListener('keydown', (e) => keys[e.key] = true);
-window.addEventListener('keyup', (e) => keys[e.key] = false);
+// Initialize keyboard event listeners
+initInputs();
 
 // Update HTML text elements with live physics data
 function updateUI() {
