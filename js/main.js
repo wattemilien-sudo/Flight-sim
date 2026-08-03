@@ -1,4 +1,5 @@
 import { plane, updatePhysics } from './physics.js';
+import { drawWindshieldView } from './renderer.js';
 
 const canvas = document.getElementById('skyCanvas');
 const ctx = canvas.getContext('2d');
@@ -7,36 +8,6 @@ const ctx = canvas.getContext('2d');
 let keys = {};
 window.addEventListener('keydown', (e) => keys[e.key] = true);
 window.addEventListener('keyup', (e) => keys[e.key] = false);
-
-// Render the moving sky and ground on the canvas window
-function drawWindshieldView() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Horizon shifts up or down depending on pitch
-    let horizonY = 150 + (plane.pitch * 4);
-
-    // Sky
-    ctx.fillStyle = "#10316b";
-    ctx.fillRect(0, 0, canvas.width, horizonY);
-
-    // Ground
-    ctx.fillStyle = "#1e381e";
-    ctx.fillRect(0, horizonY, canvas.width, canvas.height - horizonY);
-
-    // Horizon Line
-    ctx.strokeStyle = "#ffffff";
-    ctx.lineWidth = 1.5;
-    ctx.beginPath();
-    ctx.moveTo(0, horizonY);
-    ctx.lineTo(canvas.width, horizonY);
-    ctx.stroke();
-
-    // Runway visual cue when close to ground
-    if (plane.altitude < 500) {
-        ctx.fillStyle = "#ffcc00";
-        ctx.fillRect(canvas.width / 2 - 4, horizonY + 15, 8, 25);
-    }
-}
 
 // Update HTML text elements with live physics data
 function updateUI() {
@@ -65,7 +36,7 @@ function updateUI() {
 // Master Game Loop (Runs ~60 frames per second)
 function gameLoop() {
     updatePhysics(keys);
-    drawWindshieldView();
+    drawWindshieldView(canvas, ctx, plane);
     updateUI();
     requestAnimationFrame(gameLoop);
 }
