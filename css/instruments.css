@@ -1,0 +1,29 @@
+/* Dashboard Gauges and HUD Styling */
+.dashboard {
+    background: #111115;
+    border: 1px solid #22222a;
+}
+
+.instrument {
+    border-right: 1px solid #22222a;
+}
+
+.instrument:last-child {
+    border-right: none;
+}
+
+.instrument label {
+    font-size: 11px;
+    color: #777788;
+    letter-spacing: 1px;
+}
+
+.instrument span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.hud-overlay {
+    font-size: 14px;
+    text-shadow: 1px 1px 2px #000;
+}
