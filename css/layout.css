@@ -1,0 +1,61 @@
+/* Master Layout and Structural Architecture */
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.cockpit {
+    width: 800px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.windshield-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.hud-overlay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    pointer-events: none;
+}
+
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.instrument {
+    text-align: center;
+    flex: 1;
+}
+
+.instrument label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.controls-hint {
+    margin-top: 15px;
+    text-align: center;
+}
